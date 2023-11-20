@@ -9,6 +9,7 @@
 
 class Hasptr {
 public:
+  friend void swap(Hasptr &, Hasptr &);
   Hasptr(const std::string &s = std::string());
   // 拷贝构造函数
   Hasptr(const Hasptr &);
@@ -73,4 +74,9 @@ Hasptr::~Hasptr() {
   }
 }
 
+void swap(Hasptr &lhs, Hasptr &rhs) {
+  using std::swap;
+  swap(lhs.ps, rhs.ps);
+  swap(lhs.i, rhs.i);
+}
 #endif
