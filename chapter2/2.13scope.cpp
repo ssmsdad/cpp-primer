@@ -12,5 +12,6 @@ int main(){
     std::cout<<reused<<"  "<<unique<<std::endl;
     int reused=0;
     std::cout<<reused<<"  "<<unique<<std::endl;
+    //::使用全局作用域
     std::cout<<::reused<<"  "<<unique<<std::endl;
 }

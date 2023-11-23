@@ -12,5 +12,18 @@ int main(){
     std::cout<<r2<<std::endl;       //结果为15
     int *j;
     j=&ival;
-    std::cout<<j<<std::endl;        //结果为
+    std::cout<<j<<std::endl;        //同int *p=&ival
+
+    //2.20
+    int i=42;
+    int *pl=&i;
+    *pl=*pl**pl;
+    std::cout<<*pl<<std::endl;
+
+    //2.24
+    int a=50;
+    int *p1=&a;
+    //double *p2=&a;    int类型的指针不能赋值给double类型的指针
+
+
 }
