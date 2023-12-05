@@ -17,7 +17,11 @@ using namespace std;
             mid=begin+(end-begin)/2;
         }
         //仲哥，mid打印不了
-        cout<<*mid;
+            if(mid != end) {
+            cout<<*mid;
+        } else {
+            cout<<"Target not found";
+        }
     }
 
 int main(){
