@@ -15,6 +15,7 @@ public:
 
 int numbered::seq = 0;
 //对s不加引用，会导致在调用f时，调用拷贝构造函数，将实参拷贝给形参，最终输出为3,4,5,而不是0,1,2
+//!!!!
 // void f(numbered s) { std::cout << s.mynum << std::endl; }
 void f(numbered &s) { std::cout << s.mynum << std::endl; }
 
