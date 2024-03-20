@@ -15,11 +15,15 @@ public:
   ~StrVec();
   StrVec(StrVec &&) noexcept;
   StrVec &operator=(StrVec &&) noexcept;
+  StrVec &operator=(std::initializer_list<std::string>);
+  std::string operator[](std::size_t n) { return elements[n]; }
+  const std::string &operator[](std::size_t n) const { return elements[n]; }
   void push_back(const std::string &);
   size_t size() const { return first_free - elements; }
   size_t capacity() const { return cap - elements; }
   std::string *begin() const { return elements; }
   std::string *end() const { return first_free; }
+
 
 private:    
     static std::allocator<std::string> alloc;
@@ -110,3 +114,10 @@ StrVec &StrVec::operator=(StrVec &&rhs) noexcept {
     return *this;
 }
 
+StrVec &StrVec::operator=(std::initializer_list<std::string> il) {
+    auto data = alloc_n_copy(il.begin(), il.end());
+    free();
+    elements = data.first;
+    first_free = cap = data.second;
+    return *this;
+}
